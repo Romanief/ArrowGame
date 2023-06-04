@@ -3,14 +3,26 @@ import { blueArrow } from "./arrow"
 import { moveArrow, checkIfHit, arrows } from "./arrowControl"
 import { shield } from "./shield"
 import { showScores } from "./scoreControl"
-import { canvas, ctx, limit } from "./consts"
+import { canvas, centerX, centerY, ctx, limit } from "./consts"
 import { shieldDirection, updateDirection } from "./shieldControl"
+import {
+  isPlaying,
+  gameStarted,
+  startGame,
+  gameOver,
+  startAndPause,
+} from "./gameControl"
 
-let isPlaying: boolean = false
-
-function update() {
+export function update() {
   // Make sure canvas and context exists
   if (!ctx || !canvas) return console.log("No context or canvas identified")
+
+  // If game is not started draw a texts that tells the player how to start the game
+
+  if (!gameStarted) {
+    ctx.font = "30px Arial"
+    return ctx?.fillText("Press any key to start", centerX - 140, centerY)
+  }
 
   // Clear whole canvas
   ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
@@ -33,6 +45,9 @@ function update() {
 
 // Gloval event for keyDown
 document.addEventListener("keydown", (e) => {
+  // If game is not started, any key down will start the game
+  if (!gameStarted) return startGame()
+
   // If arrow is pressed redirect to shield controls
   if (
     e.key == "ArrowUp" ||
@@ -46,7 +61,7 @@ document.addEventListener("keydown", (e) => {
   switch (e.key) {
     // Spacebar: Pause or start the game
     case " ":
-      isPlaying = !isPlaying
+      startAndPause
       if (isPlaying) update()
       break
 
@@ -55,5 +70,3 @@ document.addEventListener("keydown", (e) => {
       return
   }
 })
-
-update()
