@@ -4,14 +4,15 @@ import { moveArrow, checkIfHit, arrows } from "./arrowControl"
 import { shield } from "./shield"
 import { showScores } from "./scoreControl"
 import { canvas, ctx, limit } from "./consts"
+import { shieldDirection, updateDirection } from "./shieldControl"
 
 let isPlaying: boolean = false
-let shieldDirection: string = "up"
 
 function update() {
   if (!ctx || !canvas) return console.log("No context or canvas identified")
   ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
 
+  console.log(shieldDirection)
   showScores()
   player(20, 20)
   shield(shieldDirection)
@@ -26,21 +27,17 @@ function update() {
 }
 
 document.addEventListener("keydown", (e) => {
+  if (
+    e.key == "ArrowUp" ||
+    e.key == "ArrowLeft" ||
+    e.key == "ArrowDown" ||
+    e.key == "ArrowRight"
+  )
+    return updateDirection(e.key)
+
   switch (e.key) {
-    case "ArrowUp":
-      shieldDirection = "up"
-      break
-    case "ArrowDown":
-      shieldDirection = "down"
-      break
-    case "ArrowRight":
-      shieldDirection = "right"
-      break
-    case "ArrowLeft":
-      shieldDirection = "left"
-      break
     case " ":
-      isPlaying = isPlaying ? false : true
+      isPlaying = !isPlaying
       if (isPlaying) update()
       break
 
@@ -51,5 +48,3 @@ document.addEventListener("keydown", (e) => {
 })
 
 update()
-
-export { shieldDirection }

@@ -1,16 +1,15 @@
 // Core
-const canvas: HTMLCanvasElement | null = document.querySelector("#canvas")
-const ctx = canvas?.getContext("2d")
+export const canvas: HTMLCanvasElement | null =
+  document.querySelector("#canvas")
+export const ctx = canvas?.getContext("2d")
 
 // Game mechanics
-const limit: number = 20
+export const limit: number = 20
 
 // Canvas hot points
-const centerX: number = canvas!.clientWidth / 2
-const centerY: number = canvas!.clientHeight / 2
+export const centerX: number = canvas!.clientWidth / 2
+export const centerY: number = canvas!.clientHeight / 2
 
-// Arrows constants
-const arrowW: number = 13
-const arrowH: number = 20
-
-export { canvas, ctx, limit, centerX, centerY, arrowH, arrowW }
+// Arrows  constants
+export const arrowW: number = 13
+export const arrowH: number = 20
