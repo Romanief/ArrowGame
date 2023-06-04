@@ -35,7 +35,7 @@ export function createArrow() {
         y: 590,
         w: 20,
         h: 13,
-        speed: 5,
+        speed: 3,
         direction: "up",
         hidden: false,
       }
@@ -47,7 +47,7 @@ export function createArrow() {
         y: 10,
         w: 20,
         h: 13,
-        speed: 5,
+        speed: 3,
         direction: "down",
         hidden: false,
       }
@@ -59,7 +59,7 @@ export function createArrow() {
         y: centerY,
         w: 13,
         h: 20,
-        speed: 5,
+        speed: 3,
         direction: "left",
         hidden: false,
       }
@@ -71,7 +71,7 @@ export function createArrow() {
         y: centerY,
         w: 13,
         h: 20,
-        speed: 5,
+        speed: 3,
         direction: "right",
         hidden: false,
       }
