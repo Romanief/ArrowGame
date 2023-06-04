@@ -1,4 +1,5 @@
 import { update } from "./main"
+import { reset } from "./scoreControl"
 
 export let isPlaying: boolean = false
 export let gameStarted: boolean = false
@@ -15,6 +16,7 @@ export function startGame() {
 export function gameOver() {
   isPlaying = false
   gameStarted = false
+  reset()
   update()
 }
 
