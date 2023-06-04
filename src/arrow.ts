@@ -1,8 +1,4 @@
-const canvas: HTMLCanvasElement | null = document.querySelector("#canvas")
-const ctx = canvas?.getContext("2d")
-
-const w: number = 13
-const h: number = 20
+import { ctx, arrowW as w, arrowH as h } from "./consts"
 
 export type arrow = {
   id: number

@@ -1,11 +1,7 @@
-const canvas: HTMLCanvasElement | null = document.querySelector("#canvas")
-const ctx = canvas?.getContext("2d")
+import { ctx, centerX, centerY } from "./consts"
 
 export const player = (w: number, h: number) => {
   if (!ctx) return console.log("no context")
-
-  const centerX = canvas!.clientWidth / 2
-  const centerY = canvas!.clientHeight / 2
 
   ctx.fillStyle = "coral"
   ctx.strokeStyle = "black"

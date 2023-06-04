@@ -1,7 +1,4 @@
-const canvas: HTMLCanvasElement | null = document.querySelector("#canvas")
-const centerX = canvas!.clientWidth / 2
-const centerY = canvas!.clientHeight / 2
-const ctx = canvas?.getContext("2d")
+import { canvas, centerX, centerY, ctx } from "./consts"
 
 export function shield(direction: string) {
   if (!ctx || !canvas) return console.log("no context or canvas detected")

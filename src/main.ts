@@ -3,11 +3,7 @@ import { blueArrow } from "./arrow"
 import { moveArrow, checkIfHit, arrows } from "./arrowControl"
 import { shield } from "./shield"
 import { showScores } from "./scoreControl"
-
-const canvas: HTMLCanvasElement | null = document.querySelector("#canvas")
-const ctx = canvas?.getContext("2d")
-
-const limit: number = 20
+import { canvas, ctx, limit } from "./consts"
 
 let isPlaying: boolean = false
 let shieldDirection: string = "up"
