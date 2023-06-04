@@ -7,6 +7,7 @@ export type arrow = {
   speed: number
 }
 
+// Draw a simple arrow
 export function blueArrow(x: number, y: number) {
   if (!ctx) return console.log("no context")
 

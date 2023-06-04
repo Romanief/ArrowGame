@@ -1,5 +1,6 @@
 import { canvas, centerX, centerY, ctx } from "./consts"
 
+// Draw shield
 export function shield(direction: string) {
   if (!ctx || !canvas) return console.log("no context or canvas detected")
 
@@ -7,6 +8,8 @@ export function shield(direction: string) {
   ctx.strokeRect(centerX - 20, centerY - 20, 40, 40)
 
   ctx.fillStyle = "green"
+
+  // Changes draw depending on direction of shield
   switch (direction) {
     case "up":
       ctx.fillRect(centerX - 20, centerY - 20, 40, 2)

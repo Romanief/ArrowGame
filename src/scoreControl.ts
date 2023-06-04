@@ -1,5 +1,4 @@
-const scoreDiv: HTMLElement | null = document.querySelector("#score")
-const healthDiv: HTMLElement | null = document.querySelector("#health")
+import { scoreDiv, healthDiv } from "./consts"
 
 export let score: number = 0
 export let health: number = 3
