@@ -5,7 +5,6 @@ export let isPlaying: boolean = false
 export let gameStarted: boolean = false
 
 // Make game start
-
 export function startGame() {
   gameStarted = true
   isPlaying = true
@@ -20,6 +19,7 @@ export function gameOver() {
   update()
 }
 
+// Set game pause
 export function startAndPause() {
   isPlaying = !isPlaying
 }

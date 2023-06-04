@@ -1,11 +1,12 @@
 import { player } from "./player"
 import { blueArrow } from "./arrow"
-import { moveArrow, checkIfHit, arrows } from "./arrowControl"
+import { moveArrow, checkIfHit } from "./arrowControl"
 import { shield } from "./shield"
 import { checkGameOver, showScores } from "./scoreControl"
 import { canvas, centerX, centerY, ctx, limit } from "./consts"
 import { shieldDirection, updateDirection } from "./shieldControl"
 import { isPlaying, gameStarted, startGame, startAndPause } from "./gameControl"
+import { arrows, createArrow } from "./arrowObject"
 
 export function update() {
   // Make sure canvas and context exists
@@ -25,10 +26,15 @@ export function update() {
   player(20, 20)
   shield(shieldDirection)
 
+  // Update arrows on screen
+
+  createArrow()
+
   // Iterates through the arrows and draw each one of them
   for (let arrow of arrows) {
-    blueArrow(arrow.x, arrow.y)
-    moveArrow(arrow)
+    if (!arrow) continue
+    blueArrow(arrow.x, arrow.y, arrow.w, arrow.h, arrow.direction)
+    moveArrow(arrow, arrow.direction)
     checkIfHit(arrow, limit, shieldDirection)
   }
 
@@ -60,7 +66,7 @@ document.addEventListener("keydown", (e) => {
   switch (e.key) {
     // Spacebar: Pause or start the game
     case " ":
-      startAndPause
+      startAndPause()
       if (isPlaying) update()
       break
 
